@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Favourite Idiot 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="hearts"></div>
+
+  <!-- PASSWORD SCREEN -->
+  <section class="screen active" id="lockScreen">
+    <div class="glass lock-card">
+      <div class="big-emoji">🔐</div>
+      <p class="eyebrow">A LITTLE SECRET FOR YOU</p>
+      <h1>Only my bestie<br>can enter 💗</h1>
+      <p>Before you enter, prove that you're my person. 😌</p>
+
+      <form id="passwordForm">
+        <input id="passwordInput" type="password"
+          placeholder="Enter the secret password..." autocomplete="off">
+        <button class="main-btn" type="submit">Unlock my surprise 💌</button>
+      </form>
+
+      <p class="hint">Hint: The nickname we created using our original names 👀</p>
+      <p id="passwordError" class="error"></p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="screen" id="introScreen">
+    <div class="glass content-card">
+      <p class="eyebrow">OFFICIAL BESTIE NOTICE 📢</p>
+      <div class="big-emoji">🚨🥹🚨</div>
+      <h1>Girl, we need to talk.</h1>
+      <p class="large-text">
+        Your long-distance bestie has filed a serious complaint
+        against this thing called DISTANCE.
+      </p>
+      <p>And guess what? You're the reason for this investigation. 😭😂</p>
+      <button class="main-btn" onclick="showScreen('complaintScreen')">
+        Okay, tell me 😂
+      </button>
+    </div>
+  </section>
+
+  <!-- COMPLAINTS -->
+  <section class="screen" id="complaintScreen">
+    <div class="glass content-card">
+      <p class="eyebrow">THE OFFICIAL COMPLAINT LIST 📋</p>
+      <h1>Things I blame you for 😤</h1>
+
+      <div class="complaint-list">
+        <div class="complaint">😒 Being so far away from me.</div>
+        <div class="complaint">😂 Not being here for my daily nonsense.</div>
+        <div class="complaint">🥹 Making me miss your laugh at random times.</div>
+        <div class="complaint">📱 Not magically appearing when I need to gossip.</div>
+        <div class="complaint">💗 Being my favourite human and making it impossible not to miss you.</div>
+      </div>
+
+      <p class="small-note">Penalty: Unlimited hugs whenever we meet. No negotiations. 😌</p>
+      <button class="main-btn" onclick="showScreen('photosScreen')">
+        Next, you little troublemaker →
+      </button>
+    </div>
+  </section>
+
+  <!-- PHOTO SCENE -->
+  <section class="screen" id="photosScreen">
+    <div class="glass content-card">
+      <p class="eyebrow">MY FAVOURITE HUMAN 📸</p>
+      <h1>Us. Just us. 💗</h1>
+      <p class="large-text">Different places, same weird friendship.</p>
+
+      <div class="photo-gallery">
+        <figure class="polaroid tilt-left">
+          <img src="here.jpg" alt="mohiluu..">
+          <figcaption>Me being dramatic 😭</figcaption>
+        </figure>
+
+        <figure class="polaroid tilt-right">
+          <img src="our.jpg" alt="our happy faces">
+          <figcaption>My favourite idiot 💗</figcaption>
+        </figure>
+      </div>
+
+      <p>Imagine all the nonsense we'd be doing if we were together right now. 😂</p>
+      <button class="main-btn" onclick="showScreen('memoriesScreen')">
+        Remember this feeling? 🥹
+      </button>
+    </div>
+  </section>
+
+  <!-- MEMORIES -->
+  <section class="screen" id="memoriesScreen">
+    <div class="glass content-card">
+      <p class="eyebrow">A LITTLE BESTIE REMINDER 🌷</p>
+      <h1>Things I miss about you</h1>
+
+      <div class="memory-box" id="memoryBox">
+        <div class="big-emoji">💌</div>
+        <p class="large-text" id="memoryText">
+          Tap below. I have a few things to confess.
+        </p>
+      </div>
+
+      <p class="small-note" id="memoryCount">Little confession 1 of 5</p>
+      <button class="main-btn" id="memoryButton" onclick="nextMemory()">
+        Tell me 🥹
+      </button>
+    </div>
+  </section>
+
+  <!-- THE BIG QUESTION -->
+  <section class="screen" id="questionScreen">
+    <div class="glass content-card question-card">
+      <p class="eyebrow">ANSWER CAREFULLY, MADAM 👀</p>
+      <div class="big-emoji">🥹👉👈</div>
+      <h1>Do you miss me?</h1>
+      <p class="large-text">Choose wisely. Your bestie is watching. 👁️👁️</p>
+
+      <div class="answer-area" id="answerArea">
+        <button class="yes-btn" onclick="sayYes()">YES, SO MUCH 🥹💗</button>
+        <button class="no-btn" id="noButton">NO 😈</button>
+      </div>
+      <p class="small-note" id="noMessage">Try being honest for once. 😂</p>
+    </div>
+  </section>
+
+  <!-- YES SURPRISE -->
+  <section class="screen" id="yesScreen">
+    <div class="glass content-card">
+      <div class="big-emoji">😭💗🫂</div>
+      <p class="eyebrow">I KNEW IT!</p>
+      <h1>YOU MISS ME TOO!</h1>
+      <p class="large-text">
+        Screenshot this confession. It is legally binding. 😂
+      </p>
+      <p>Okay, jokes aside... I really wish I could be there with you right now.</p>
+      <div class="heart-burst">💗 💖 💕 💞 💗</div>
+      <button class="main-btn" onclick="showScreen('letterScreen')">
+        One last thing, okay? 💌
+      </button>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="screen" id="letterScreen">
+    <div class="glass letter-card">
+      <p class="eyebrow">FROM MY HEART TO YOURS 💌</p>
+      <h1>Hey, my favourite person 🥹</h1>
+
+      <div class="letter-photos">
+        <img src="me.jpg" alt="Me">
+        <span>💗</span>
+        <img src="bestie.jpg" alt="My bestie">
+      </div>
+
+      <div class="letter-text">
+        <p>I miss you. Like, a lot more than I can explain. 🥹</p>
+
+        <p>Sometimes, there are so many things I want to share with you,
+        so many little things that happen in my day, but somehow I can't
+        share them with you the way I want to. And I end up missing you even more.</p>
+
+        <p>I miss your silly jokes, your stupid talks, and mostly,
+        <strong>the way you make me laugh</strong> even when I'm not in the mood. 💗</p>
+
+        <p>I know distance keeps us apart, but it can never break our friendship.
+        No matter how far we are or how busy life gets, you'll always be my person.</p>
+
+        <p>I just wish you were here sometimes. To laugh with me, listen to my
+        random stories, and make ordinary days feel special.</p>
+
+        <p>I miss you so much, idiot. 😭💗</p>
+
+        <p class="love-line">Love you always. No distance can change that. 🫶🏻💌</p>
+      </div>
+
+      <button class="main-btn" onclick="showScreen('finalScreen')">
+        One tiny final surprise ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- FINAL SCREEN -->
+  <section class="screen" id="finalScreen">
+    <div class="glass content-card">
+      <div class="big-emoji">🌙💗✨</div>
+      <h1>Until we meet again...</h1>
+      <p class="large-text">
+        Save a little space for me in your next laugh,
+        your next story, and your next hug.
+      </p>
+      <p>Distance: 1. Bestie bond: 100000000. 😌💗</p>
+      <h2>Miss you, my idiot. 💌</h2>
+      <button class="main-btn" onclick="restartWebsite()">
+        Read it all again ↻
+      </button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
